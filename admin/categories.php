@@ -1,4 +1,7 @@
-        <!DOCTYPE html>
+<!-- attach connection file -->
+<?php include("connection.php"); ?>
+<!-- connection file attached -->
+<!DOCTYPE html>
         <html lang="en">
         <head>
             <meta charset="utf-8">
@@ -14,6 +17,7 @@
 
             <!-- Custom CSS -->
             <link href="css/sb-admin.css" rel="stylesheet">
+            <link href="css/main.css" rel="stylesheet">
 
             <!-- Custom Fonts -->
             <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -38,27 +42,43 @@
                             <?php include("sidebar.php"); ?>
                         <!-- /.navbar-collapse -->
                     </nav>
+                    <!-- php code to add new categories -->
+                        <?php
+                            if(isset($_POST['submit']))
+                            {
+                                $cat_name=$_POST['cname'];
 
+                                $sql= "INSERT INTO categories (`title`) values ('$cat_name')";
+
+                                if(!mysqli_query($con,$sql))
+                                {
+                                    echo "category not added";
+                                }
+                                else
+                                {
+                                    // echo "category added";
+                                }
+                            }
+                        ?>
+                    <!-- add categories code end -->
                     <div id="page-wrapper">
                         <div class="container-fluid">
                             <!-- Page Heading -->
                             <div class="row">
                                 <div class="col-lg-12">
                                     <h1 class="page-header">
-                                        Blank Page
-                                        <small>Subheading</small>
+                                        Add Category
                                     </h1>
                                     <ol class="breadcrumb">
-                                        <li>
-                                            <i class="fa fa-dashboard"></i>  <a href="index.html">Dashboard</a>
-                                        </li>
-                                        <li class="active">
-                                            <i class="fa fa-file"></i> Blank Page
-                                        </li>
+                                        <form action="categories.php" method="post">
+                                            <label for="cname">Category Name</label><br>
+                                            <input type="text" id="cname" name="cname"><br>
+                                            <input type="submit" value="Submit" name="submit">
+                                        </form>
                                     </ol>
                                 </div>
                             </div>
-                            <!-- /.row -->  
+                            <!-- /.row -->
                         </div>
                         <!-- /.container-fluid -->
                     </div>
