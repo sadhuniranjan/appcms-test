@@ -1,8 +1,4 @@
-<!--  add header -->
-    <?php
-        include("header.php");
-    ?>
-<!-- header end -->
+<?php include_once("header.php"); ?>
         <!DOCTYPE html>
         <html lang="en">
 
