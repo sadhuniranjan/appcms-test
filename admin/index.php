@@ -7,7 +7,7 @@
             <meta name="description" content="">
             <meta name="author" content="">
 
-            <title>SB Admin - Bootstrap Admin Template</title>
+            <title>SB Admin - This is Admin </title>
 
             <!-- Bootstrap Core CSS -->
             <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -45,15 +45,15 @@
                             <div class="row">
                                 <div class="col-lg-12">
                                     <h1 class="page-header">
-                                        Blank Page
-                                        <small>Subheading</small>
+                                        Admin Here...
+                                        <small>Welcome to CMS</small>
                                     </h1>
                                     <ol class="breadcrumb">
                                         <li>
-                                            <i class="fa fa-dashboard"></i>  <a href="index.html">Dashboard</a>
+                                            <i class="fa fa-dashboard"></i>  <a href="index.php">Dashboard</a>
                                         </li>
                                         <li class="active">
-                                            <i class="fa fa-file"></i> Blank Page
+                                            
                                         </li>
                                     </ol>
                                 </div>

@@ -1,6 +1,29 @@
 <!-- attach connection file -->
 <?php include("connection.php"); ?>
 <!-- connection file attached -->
+
+<!-- edit post php code -->
+<?php
+    $id='';
+    $id=$_GET["id"];
+    
+
+    if(isset($_GET["id"]))
+    {
+        $sql = "SELECT * FROM posts where id=". $_GET['id'];
+        $result= mysqli_query($con,$sql);
+        $var=mysqli_fetch_assoc($result);
+
+        $post_title=$var["title"];
+
+        $author_name=$var["author"];
+
+        $content=$var['content'];
+
+        $category=$var['category'];
+    }
+?> 
+<!-- php code end -->
 <!DOCTYPE html>
         <html lang="en">
         <head>
@@ -69,16 +92,8 @@
 
                                 $final_check_values= mysqli_real_escape_string($con,$checkbox1);
 
-                                $sql= "INSERT INTO posts (`title`,`author`,`content`,`category`,`imageExtension`) values ('$post_title','$author_name','$content','$final_check_values','$image')";
-
-                                if(!mysqli_query($con,$sql))
-                                {
-                                    echo "post not added";
-                                }
-                                else
-                                {
-                                    // echo "post added";
-                                }
+                                $sql1= "UPDATE posts SET title = '$post_title', author='$author_name',content='$content',category='$final_check_values',imageExtension='$image' where id=".$id;
+                                $run_query = mysqli_query($con,$sql1);
                             }
                         ?>
                     <!-- add categories code end -->
@@ -91,12 +106,12 @@
                                         Add Posts
                                     </h1>
                                     <ol class="breadcrumb">
-                                        <form action="posts.php" method="post" enctype="multipart/form-data">
+                                        <form action="" method="post" enctype="multipart/form-data">
                                             <label for="cname">Post Title</label><br>
-                                            <input type="text" id="pname" name="pname"><br>
+                                            <input type="text" id="pname" name="pname" value="<?php echo $post_title; ?>" ><br>
                                             <label for="aname">Author Name</label><br>
-                                            <input type="text" id="aname" name="aname"><br>
-                                            <textarea id="content" name="content" placeholder="Write something about ypur post.." style="height:215px; width:500px;"></textarea><br>
+                                            <input type="text" id="aname" name="aname" value="<?php echo $author_name; ?>"><br>
+                                            <textarea id="content" name="content"  style="height:215px; width:500px;"><?php echo $content; ?></textarea><br>
                                                 <!-- div categories dynamic -->    
                                                 <div id="div_categories">
                                                     <?php

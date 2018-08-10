@@ -1,7 +1,7 @@
 <div class="collapse navbar-collapse navbar-ex1-collapse">
                         <ul class="nav navbar-nav side-nav">
                             <li>
-                                <a href="index.html"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
+                                <a href="index.php"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
                             </li>
                             <li>
                                 <a href="categories.php"><i class="fa fa-fw fa-bar-chart-o"></i>Add Categories</a>
@@ -13,7 +13,7 @@
                                 <a href="posts.php"><i class="fa fa-fw fa-table"></i>Add Posts</a>
                             </li>
                             <li>
-                                <a href="forms.html"><i class="fa fa-fw fa-edit"></i> Forms</a>
+                                <a href="view_post.php"><i class="fa fa-fw fa-edit"></i>View Posts</a>
                             </li>
                             <li>
                                 <a href="bootstrap-elements.html"><i class="fa fa-fw fa-desktop"></i> Bootstrap Elements</a>
