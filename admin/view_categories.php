@@ -1,3 +1,6 @@
+<!-- attach connection file -->
+<?php include("connection.php"); ?>
+<!-- connection file attached -->
 <!DOCTYPE html>
         <html lang="en">
         <head>
@@ -45,11 +48,36 @@
                             <div class="row">
                                 <div class="col-lg-12">
                                     <h1 class="page-header">
-                                        Blank Page
-                                        <small>Subheading</small>
+                                        Categories
+                                        <small></small>
                                     </h1>
                                     <ol class="breadcrumb">
-
+                                    <table id="bootstrap-data-table" class="table table-striped table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th>ID</th>
+                                                <th>category Name</th>
+                                            </tr>
+                                        </thead>
+                                        <?php
+                                            //table data
+                                                $sql = "SELECT * from categories;";
+                                                $result= mysqli_query($con,$sql);
+                                                
+                                                if (mysqli_num_rows($result) > 0)
+                                                {
+                                                // output data of each row
+                                                while($row = mysqli_fetch_assoc($result))
+                                                    {
+                                                    $id=$row['id'];
+                                                    echo "<tr>";
+                                                    echo "<td>" .$row['id']."</td>";
+                                                    echo "<td>" .$row['title']."</td>";
+                                                    echo "</tr>";
+                                                    }
+                                                }
+                                        ?>
+                                    </table>
                                     </ol>
                                 </div>
                             </div>
